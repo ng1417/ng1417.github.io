@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="cs133 homework 2 page">
+<link rel="stylesheet" href="styles.css">
+
+<title>CNIT133 HW2 Part 1</title> <!-- what appears in tab header -->
+</head>
+<body><!-- here is where you see what is on the page -->
+<h1>
+CNIT 133 Homework 2 - Part 2
+</h1>
+<!-- Create a webpage that contains a script that inputs three integers via form text boxes 
+and displays the sum, average, and product of the three integers, 
+and the smallest and largest of the three integers. 
+Your results should be displayed using alerts or a form textarea or a div element. -->
+
+<script>
+
+var number1, number2, number3;
+var sum, average, product, largest, smallest;
+
+number1 = parseInt( prompt( "Enter the first number", "" ) );
+
+number2 = parseInt( prompt( "Enter the second number", "" ) );
+
+number3 = parseInt( prompt( "Enter the third number", "" ) );
+
+sum = number1 + number2 + number3;
+average = sum / 3;
+product = number1 * number2 * number3;
+
+smallest = (Math.min(number1, number2, number3));
+
+largest =(Math.max(number1, number2, number3));
+
+
+
+document.write("<h2>The sum of the numbers is " + sum + "</h2>");
+document.write("<h2>the average is  " + average + "</h2>");
+document.write("<h2>the product is " + product + "</h2>");
+document.write("<h2>the smallest of the numbers is " + smallest + "</h2>");
+document.write("<h2>the largest of the numbers is " + largest + "</h2>");
+</script>
