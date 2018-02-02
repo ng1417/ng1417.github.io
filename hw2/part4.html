@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="description" content="cs133 homework 2 page">
-<link rel="stylesheet" href="styles.css">
-
-<title>CNIT133 HW2 Part 1</title> <!-- what appears in tab header -->
+<link rel="stylesheet" href="..\styles.css">
+<!-- Create a webpage that contains a script that calculates the squares and cubes of the numbers 1 to 6 
+and outputs text that displays (using document.write statements) the resulting values in a table format, as follows: -->
+<title>CNIT133 HW2 Part 4</title> <!-- what appears in tab header -->
 </head>
 <body><!-- here is where you see what is on the page -->
-
 <nav >
 			<a href="hw2.html"> Homework 2 </a>|
 			<a href="hw2/part1.html"> Part 1 </a>|
@@ -16,27 +16,29 @@
 			<a href="hw2/part3.html"> Part 3 </a>|
 			<a href="hw2/part4.html"> Part 4 </a>|
 			<a href="hw2/extracredit.html"> Extra Credit </a>
-	</nav>
+</nav>
 <h1>
-CNIT 133 Homework 2 - Part 1
+CNIT 133 Homework 2 - Part 4
 </h1>
-<!-- Create a webpage that contains a script that displays in pairs and strong (bold), 
-the letters ab and the numbers 12 and 34 on the same line, with each pair of characters 
-separated by one space. Write the script using document.write statements. 
-Use a font family of Times New Roman and the color red for the letters ab, 
-a font family of Arial and the color blue for the the numbers 12 and a font family of Impact, 
-the color green, and emphasized (in italics) for the numbers 34.  -->
-
-	<script>
-	document.write("<span style = 'color: red; font-family: times;'>ab </span>");
-    document.write("<span style = 'color: blue; font-family: arial;'>12 </span>");
-    document.write("<span style = 'color: green; font-family: impact; font-style: italic;'>34</span>");
-	</script>
+<!-- script to generate table with squared and cubed values of 1-6 -->
+<script>
+function process() {
+	var i, number, square, cube;
+	//loop through to calculate values
+	document.write("<table ><tr><th>Number</th><th>Square</th><th>Cube</th></tr>");
+	for (i = 1; i < 7; i++) {
+		square = i * i;
+		cube = i * i * i;
+		document.write('<tr> <td>' + i + '</td> <td>' + square + '</td> <td>' + cube + '</td>');
+	}
 	
+}
+</script>
+	
+	<input type="button" onclick="process()" value="Calculate">
+<input type="reset" value="Reset">
 
-
-
-<footer>
+<div id="footer">
 	<p>Nicole Horner CNIT 133 Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a></p>
 	<!-- this script writes the date the document was last modified -->
 	<script>
@@ -48,8 +50,5 @@ the color green, and emphasized (in italics) for the numbers 34.  -->
 	<a class="noglo" href="http://validator.w3.org/check?uri=referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" alt="Valid HTML5" /></a>
 	<a class="noglo" href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
 	</p> -->
-</footer>
-
+</div>
 </body>
-
-</html> 

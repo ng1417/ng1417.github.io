@@ -3,11 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="description" content="cs133 homework 2 page">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="..\styles.css">
 
-<title>CNIT133 HW2 Part 1</title> <!-- what appears in tab header -->
+<title>CNIT133 HW2 Part 2</title> <!-- what appears in tab header -->
 </head>
 <body><!-- here is where you see what is on the page -->
+
+<nav >
+			<a href="hw2.html"> Homework 2 </a>|
+			<a href="hw2/part1.html"> Part 1 </a>|
+			<a href="hw2/part2.html"> Part 2 </a>|
+			<a href="hw2/part3.html"> Part 3 </a>|
+			<a href="hw2/part4.html"> Part 4 </a>|
+			<a href="hw2/extracredit.html"> Extra Credit </a>
+</nav>
+
 <h1>
 CNIT 133 Homework 2 - Part 2
 </h1>
@@ -35,11 +45,24 @@ smallest = (Math.min(number1, number2, number3));
 
 largest =(Math.max(number1, number2, number3));
 
-
-
+document.write("<h2>The numbers you entered are: " + number1 + " " +  number2 + " " + number3 + "</h2>");
 document.write("<h2>The sum of the numbers is " + sum + "</h2>");
 document.write("<h2>the average is  " + average + "</h2>");
 document.write("<h2>the product is " + product + "</h2>");
 document.write("<h2>the smallest of the numbers is " + smallest + "</h2>");
 document.write("<h2>the largest of the numbers is " + largest + "</h2>");
 </script>
+
+<footer>
+	<p>Nicole Horner CNIT 133 Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a></p>
+	<!-- this script writes the date the document was last modified -->
+	<script>
+    var dateModified = document.lastModified;
+    mydate = dateModified.slice(0,16);
+    document.write("Last updated: " + mydate);
+	</script>
+	<!--  <p>
+	<a class="noglo" href="http://validator.w3.org/check?uri=referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" alt="Valid HTML5" /></a>
+	<a class="noglo" href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
+	</p> -->
+</footer>
