@@ -55,17 +55,20 @@ for (i = 0; i < 5; i++) {
 	}
 }
 
-//output results to results box
-// this is not working : document.getElementById("div1").innerHTML("positives " +positiveCount); 
-document.write("positives " +positiveCount); 
-document.write("\n negatives " + negativeCount);
-document.write("\n zeros " + zeroCount);
-/*document.forms["myform"].elements["result"].value = ("You entered:\n" + positiveCount + " positive numbers\n" + negativeCount + " negative numbers."
-	+ zeroCount " zeros."); 
-*/
+//output results
+document.getElementById("div1").innerHTML=("You entered "+positiveCount+" positives, "+negativeCount+ " negatives and "+zeroCount+" zeros."); 
+
 }
 </script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#div1").fadeTo("slow", 0.15);
+    });
+});
+</script>
+<body>
 <section class="p">
 <h1>
 CNIT 133 Homework 2 - Part 3
@@ -94,18 +97,19 @@ CNIT 133 Homework 2 - Part 3
 </tr>
 </table>
 <br>
- <!--  <br> Results:
-<textarea rows="4" cols="20" name="result">
-</textarea>
--->
 
 <input type="button" onclick="process()" value="SUBMIT">
 <input type="reset" value="RESET">
 </section>
 
-<!-- if I write to a div1 then I can use the fade on that div -->
-<div id="div1" style="color:blue;"></div>
-
+<!-- fade on that div -->
+<section>
+<h3> Results</h3>
+<div id="div1"></div>
+<br>
+<br>
+<button type="button">Fade Results</button>
+</section>
 <footer>
 	<p>Nicole Horner CNIT 133 Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a></p>
 	<!-- this script writes the date the document was last modified -->
