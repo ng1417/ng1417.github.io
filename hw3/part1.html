@@ -40,7 +40,14 @@ final average = (.5 * hwAvg) + (.2 * midExam) + (.2 * finalExam) + (.1 * ACR)-->
 			
 			finalGrade = Math.round((.5 * hwAvg) + (.2 * midExam) + (.2 * finalExam) + (.1 * ACR));
 			//output results
-			document.getElementById("div1").innerHTML=("Your final grade: "+ finalGrade + ", Letter grade: " + letterGrade(finalGrade)); 
+			var myLetterGrade = letterGrade(finalGrade);
+			document.forms["myform"].elements["result"].value = (finalGrade + "%, Letter grade: " + myLetterGrade);
+			if(myLetterGrade === 'D' || myLetterGrade === 'F' ){
+				document.getElementById("div1").innerHTML=("The student must retake the course!");
+			}
+			else {
+				document.getElementById("div1").innerHTML=("The student passed the course.");
+			}
 		}
 	}
 	
@@ -72,15 +79,13 @@ final average = (.5 * hwAvg) + (.2 * midExam) + (.2 * finalExam) + (.1 * ACR)-->
 
 	    });
 
-	    $.validator.addClassRules({
+	    $.validator.addClassRules({  //anything in this class gets validated with these rules
 	        num: {
 	            required: true,
 	            number: true,
 	           	min: 0, 
-		    	max: 100}
-	        
-	    });
-
+		    	max: 100}     
+	});
 	});
 </script>
 
@@ -107,6 +112,10 @@ CNIT 133 Homework 2 - Part 3
 <td>ACR:</td>
 <td><input type="text" name="acr" class="num"></td>
 </tr>
+<tr>
+<td>Final Grade:</td> 
+<td><input type="text" name="result" size="20" readonly></td>
+</tr>
 </table>
 <br>
 <input type="button" onclick="calculateGrade()" value="Calculate grade">
@@ -116,7 +125,7 @@ CNIT 133 Homework 2 - Part 3
 </section>
 
 <section>
-<h3> Results</h3>
+
 <div id="div1"></div>
 <br>
 <br>
