@@ -89,11 +89,23 @@ final average = (.5 * hwAvg) + (.2 * midExam) + (.2 * finalExam) + (.1 * ACR)-->
 	});
 </script>
 
-
-<section class="p">
+<script> 
+$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+</script>
+ 
+<!-- <section class="p">
 <h1>
 CNIT 133 Homework 2 - Part 3
 </h1>
+ -->
+<div id="flip">Click to Show/Hide Instructions</div>
+<div id="panel" class="panel">The following webpage contains the heading, Student Grades, and uses a script that inputs a student's 
+	homework average, mid-term exam score, final exam score, and ACR (all as integers)</div>
+
 <form name="myform" id="myform">
 <table>
 <tr>
