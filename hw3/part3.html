@@ -4,8 +4,37 @@
 <meta charset="utf-8">
 <meta name="description" content="cs133 homework 3 Part 3 page">
 <link rel="stylesheet" href="styles.css">
+<title>CNIT133 hw3 Part 3</title> <!-- what appears in tab header -->
 
-<title>CNIT133 hw3 Part 1</title> <!-- what appears in tab header -->
+<!--scripts to process form and return answers   -->
+<script>
+	function convertToC()
+	{
+		fahrenheit = parseInt(document.forms["myform"].elements["fahr"].value);
+		if (!isNaN(fahrenheit)) {
+				celsius = 5/9 * (fahrenheit -32);
+				document.getElementById("div1").innerHTML=(fahrenheit + " Fahrenheit = " + celsius + " Celsius.");
+		}
+		else {
+				document.getElementById("div1").innerHTML=("<h3 style=\"color:red;\">Please input a numeric value.</h3>");
+		}
+	}
+	
+	function convertToF()
+	{
+		//get and parse numbers entered into form
+			celsius = parseInt(document.forms["myform"].elements["cels"].value);
+			if (!isNaN(celsius)) {
+				fahrenheit = (9/5 * celsius) + 32;
+				document.getElementById("div1").innerHTML=(celsius + " Celsius = " + fahrenheit + " Fahrenheit.");
+			}
+			else {
+				document.getElementById("div1").innerHTML=("<h3 style=\"color:red;\">Please input a numeric value.</h3>");
+			}
+		
+		}
+</script>
+
 </head>
 
 <body><!-- here is where you see what is on the page -->
@@ -18,10 +47,40 @@
 			<a href="hw3/part4.html"> Part 4 </a>|
 	</nav>
 <h1>
-CNIT 133 Homework 3 - Part 1
+CNIT 133 Homework 3 - Part 3
 </h1>
-<!--  -->
 
+<!-- <section class="p">
+<h1>
+CNIT 133 Homework 2 - Part 3
+</h1>
+ -->
+
+<form name="myform" id="myform">
+<table>
+<tr>
+<td>Temperature in Celsius:</td>
+<td><label for="cels"></label><input type="text" name="cels" class="num"></td>
+</tr>
+<tr>
+<td>Temperature in Fahrenheit:</td>
+<td><input type="text" name="fahr" class="num"></td>
+</tr>
+
+</table>
+<br>
+<input type="button" onclick="convertToF()" value="Convert to Fahrenheit">
+<input type="button" onclick="convertToC()" value="Convert to Celsius">
+<input type="reset" value="RESET">
+</form>
+
+<section>
+
+<div id="div1"></div>
+<br>
+<br>
+
+</section>
 
 	
 
