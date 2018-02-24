@@ -46,4 +46,9 @@ div.panel {
 
 input.num {text-align: right;}
 
+  label {
+    display: inline-block;
+    width: 5em;
+  }
+
 

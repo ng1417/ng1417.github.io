@@ -4,19 +4,15 @@
 <meta charset="utf-8">
 <meta name="description" content="cs133 homework 3 Part 2 page">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 
 <title>CNIT133 hw3 Part 1</title> <!-- what appears in tab header -->
-</head>
+<!-- the next three scripts are jquery for validating input -->
 
-<body><!-- here is where you see what is on the page -->
 
-<nav >
-			<a href="hw3.html"> Homework 3 </a>|
-			<a href="hw3/part1.html"> Part 1 </a>|
-			<a href="hw3/part2.html"> Part 2 </a>|
-			<a href="hw3/part3.html"> Part 3 </a>|
-			<a href="hw3/part4.html"> Part 4 </a>|
-	</nav>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 
 <script>
 //parse item sales
@@ -61,10 +57,6 @@
 	}
 	
 </script>
-<!-- the next three scripts are jquery for validating input -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 
 <script>
 //validates the data entered is numeric and between 0-100 inclusive)
@@ -82,23 +74,30 @@
 	});
 </script>
 
-<script> 
-$(document).ready(function(){
-    $("#flip").click(function(){
-        $("#panel").slideToggle("slow");
-    });
-});
-</script>
+
+      
+      
+</head>
+
+<body><!-- here is where you see what is on the page -->
+
+<nav >
+			<a href="hw3.html"> Homework 3 </a>|
+			<a href="hw3/part1.html"> Part 1 </a>|
+			<a href="hw3/part2.html"> Part 2 </a>|
+			<a href="hw3/part3.html"> Part 3 </a>|
+			<a href="hw3/part4.html"> Part 4 </a>|
+	</nav>
  
 <form name="myform" id="myform">
 <table>
 <tr>
 <td>Salesperson:</td>
-<td><label for="salesperson"></label><input type="text" name="salesperson"></td>
+<td><label for="salesperson" id="tooltip-1">Salesperson Name</label><input type="text" name="salesperson" title="Please make sure that the salesperson's name is spelled correctly"></td>
 </tr>
 <tr>
 <td>Item 1:</td>
-<td><label for="item1"></label><input type="text" name="item1" class="num"></td>
+<td><input type="text" name="item1" class="num"></td>
 </tr>
 <tr>
 <td>Item 2:</td>
