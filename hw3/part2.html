@@ -33,12 +33,16 @@
 			item2 = parseInt(document.forms["myform"].elements["item2"].value);
 			item3 = parseInt(document.forms["myform"].elements["item3"].value);
 			item4 = parseInt(document.forms["myform"].elements["item4"].value);
+			totalSales = parseFloat(totalItemSales(item1, item1Value)) +
+				parseFloat(totalItemSales(item2, item2Value)) +
+				parseFloat(totalItemSales(item3, item3Value)) +
+				parseFloat(totalItemSales(item4, item4Value));
 			totalPay = parseFloat(basePay) + parseFloat(commission(item1, item1Value)) +
-					parseFloat(commission(item2, item2Value)) +
-							parseFloat(commission(item3, item3Value)) +
-									parseFloat(commission(item4, item4Value));
-		
-			document.forms["myform"].elements["result"].value = totalPay;
+				parseFloat(commission(item2, item2Value)) +
+				parseFloat(commission(item3, item3Value)) +
+				parseFloat(commission(item4, item4Value));
+			document.forms["myform"].elements["sales"].value = totalSales.toFixed(2);
+			document.forms["myform"].elements["pay"].value = totalPay;
 		}
 	}
 	
@@ -49,9 +53,7 @@
 	function totalItemSales(quantity, price){
 		return (quantity*price);
 	}
-	function totalSales(){
-		//something that adds up everything
-	}
+	
 		
 
 
@@ -108,8 +110,12 @@ $(document).ready(function(){
 <td><input type="text" name="item4" class="num"></td>
 </tr>
 <tr>
+<td>Total Sales:</td> 
+<td><input type="text" name="sales" size="20" readonly></td>
+</tr>
+<tr>
 <td>Base + Commission Pay:</td> 
-<td><input type="text" name="result" size="20" readonly></td>
+<td><input type="text" name="pay" size="20" readonly></td>
 </tr>
 </table>
 <br>
