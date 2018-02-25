@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="description" content="cs133 homework 3 Part 2 page">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-
 <title>CNIT133 hw3 Part 1</title> <!-- what appears in tab header -->
-<!-- the next three scripts are jquery for validating input -->
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <!--  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>-->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-
 <script>
 //parse item sales
 	function calculateSales()
@@ -38,7 +38,8 @@
 				parseFloat(commission(item3, item3Value)) +
 				parseFloat(commission(item4, item4Value));
 			document.forms["myform"].elements["sales"].value = "$" + totalSales.toFixed(2);
-			document.forms["myform"].elements["pay"].value = "$" + totalPay;
+			document.forms["myform"].elements["pay"].value = "$" + totalPay.toFixed(2);
+			
 		}
 	}
 	
@@ -69,11 +70,29 @@
 	        num: {
 	            number: true,
 	           	min: 0, 
-		    	max: 1000000}     
+		    	max: 1000000} ,
+	    	name: {
+	    		required: true,
+	    		minlength: 1
+	    	}
+	    
 	});
 	});
 </script>
-
+<script>
+  $( document ).tooltip();
+</script>
+<!-- thinking of doing document.write script for results table -->
+<script>
+	function salesResultsTable(){
+	//loop through to calculate values
+	document.write("<table ><tr><th>Item Number</th><th>Quantity Sold</th><th>Sales Total</th><th>Commission</th></tr>");
+	for (i = 1; i < 7; i++) {
+		square = i * i;
+		cube = i * i * i;
+		document.write('<tr> <td>' + i + '</td> <td>' + square + '</td> <td>' + cube + '</td>');
+	}}
+</script>
 
       
       
@@ -93,7 +112,7 @@
 <table>
 <tr>
 <td>Salesperson:</td>
-<td><label for="salesperson" id="tooltip-1">Salesperson Name</label><input type="text" name="salesperson" title="Please make sure that the salesperson's name is spelled correctly"></td>
+<td><label for="salesperson" class="name" id="tooltip-1">Salesperson Name</label><input type="text" name="salesperson" title="Please make sure that the salesperson's name is spelled correctly"></td>
 </tr>
 <tr>
 <td>Item 1:</td>
@@ -113,11 +132,11 @@
 </tr>
 <tr>
 <td>Total Sales:</td> 
-<td><input type="text" name="sales" class="num" size="20" readonly></td>
+<td><input type="text" name="sales" class="money"  size="20" readonly></td>
 </tr>
 <tr>
 <td>Base + Commission Pay:</td> 
-<td><input type="text" name="pay" class="num" size="20" readonly></td>
+<td><input type="text" name="pay" class="money"  size="20" readonly></td>
 </tr>
 </table>
 <br>
@@ -126,14 +145,6 @@
 <input type="reset" value="RESET">
 </form>
 
-<section>
-
-<div id="div1"></div>
-<br>
-<br>
-
-</section>
-	
 
 <footer>
 	<p> Nicole Horner Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a></p>
