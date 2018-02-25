@@ -6,10 +6,10 @@ h1 {
      font-style:italic;   
 }
 
-
 nav {
 	padding: 10px;
 }
+
 section {
     margin: 25px;
 }
@@ -21,6 +21,7 @@ footer {
 	width: 100%; 
 	padding: 10px;
 	}
+	
 table, th, td {
 	border-collapse:collapse;
 	border:1px solid black;
@@ -41,10 +42,9 @@ div.panel {
     display: none;
 }
 
-
 input.num, input.money {text-align: right;}
 
-  label {
+ label {
     display: inline-block;
     width: 5em;
   }

@@ -47,12 +47,11 @@
 			document.forms["myform"].elements["pay"].value = "$" + totalPay.toFixed(2);
 			
 			document.getElementById("div1").innerHTML = ("<table ><tr><th>Item Number</th><th>Quantity Sold</th><th>Sales Total</th><th>Commission</th></tr>")
-			+ ('<tr> <td>1</td> <td>' + item1Quant + '</td> <td>' + sales1 + '</td> <td>' + commission1 + '</td></tr>')
-			+ ('<tr> <td>1</td> <td>' + item2Quant + '</td> <td>' + sales2 + '</td> <td>' + commission2 + '</td></tr>')
-			+('<tr> <td>1</td> <td>' + item3Quant + '</td> <td>' + sales3 + '</td> <td>' + commission3 + '</td></tr>')
-			+('<tr> <td>1</td> <td>' + item4Quant + '</td> <td>' + sales4 + '</td> <td>' + commission4 + '</td></tr>');
-					
-		}
+			+ ('<tr> <td>1</td> <td>' + item1Quant + '</td> <td>' + sales1 + '</td> <td>' + commission1.toFixed(2) + '</td></tr>')
+			+ ('<tr> <td>1</td> <td>' + item2Quant + '</td> <td>' + sales2 + '</td> <td>' + commission2.toFixed(2) + '</td></tr>')
+			+('<tr> <td>1</td> <td>' + item3Quant + '</td> <td>' + sales3 + '</td> <td>' + commission3.toFixed(2) + '</td></tr>')
+			+('<tr> <td>1</td> <td>' + item4Quant + '</td> <td>' + sales4 + '</td> <td>' + commission4.toFixed(2) + '</td></tr>');
+			}
 	}
 	
 	function commission(quantity, price){
@@ -112,7 +111,7 @@
 <table>
 <tr>
 <td>Salesperson:</td>
-<td><label for="salesperson" class="name" id="tooltip-1"></label><input type="text" name="salesperson" title="Please make sure that the salesperson's name is spelled correctly"></td>
+<td><label for="salesperson" id="tooltip-1"></label><input type="text" name="salesperson" class="name" title="Please make sure that the salesperson's name is spelled correctly"></td>
 </tr>
 <tr>
 <td>Item 1:</td>
