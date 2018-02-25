@@ -11,9 +11,7 @@ nav {
 	padding: 10px;
 }
 section {
-    margin: 5px;
-    padding: 5px;
-    background-color: lightgrey;
+    margin: 25px;
 }
 
 footer {
@@ -44,7 +42,7 @@ div.panel {
 }
 
 
-input.num {text-align: right;}
+input.num, input.money {text-align: right;}
 
   label {
     display: inline-block;

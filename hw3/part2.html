@@ -16,30 +16,42 @@
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 <script>
 //parse item sales
+	theItem1Value =	239.99;
+	theItem2Value =	129.75;
+	theItem3Value =	99.95;
+	theItem4Value =	350.89;
+	theBasePay = 200;
+	var theItem1Quantity;
+
 	function calculateSales()
 	{
-		item1Value =	239.99;
-		item2Value =	129.75;
-		item3Value =	99.95;
-		item4Value =	350.89;
-		basePay = 200;
+		
 		if ($("#myform").valid()) {
 			//get and parse numbers entered into form
-			item1 = parseInt(document.forms["myform"].elements["item1"].value);
-			item2 = parseInt(document.forms["myform"].elements["item2"].value);
-			item3 = parseInt(document.forms["myform"].elements["item3"].value);
-			item4 = parseInt(document.forms["myform"].elements["item4"].value);
-			totalSales = parseFloat(totalItemSales(item1, item1Value)) +
-				parseFloat(totalItemSales(item2, item2Value)) +
-				parseFloat(totalItemSales(item3, item3Value)) +
-				parseFloat(totalItemSales(item4, item4Value));
-			totalPay = parseFloat(basePay) + parseFloat(commission(item1, item1Value)) +
-				parseFloat(commission(item2, item2Value)) +
-				parseFloat(commission(item3, item3Value)) +
-				parseFloat(commission(item4, item4Value));
+			item1Quant = parseInt(document.forms["myform"].elements["item1"].value);
+			item2Quant = parseInt(document.forms["myform"].elements["item2"].value);
+			item3Quant = parseInt(document.forms["myform"].elements["item3"].value);
+			item4Quant = parseInt(document.forms["myform"].elements["item4"].value);
+			sales1 = parseFloat(totalItemSales(item1Quant, theItem1Value));
+			sales2 = parseFloat(totalItemSales(item2Quant, theItem2Value));
+			sales3 = parseFloat(totalItemSales(item3Quant, theItem3Value));
+			sales4 = parseFloat(totalItemSales(item4Quant, theItem4Value));
+			totalSales = sales1 + sales2 + sales3 + sales4;
+			commission1 = parseFloat(commission(item1Quant, theItem1Value));
+			commission2 = parseFloat(commission(item2Quant, theItem2Value));
+			commission3 = parseFloat(commission(item3Quant, theItem3Value));
+			commission4 = parseFloat(commission(item4Quant, theItem4Value));
+			totalPay = parseFloat(theBasePay) + commission1 + commission2, commission3, commission4;
+			
 			document.forms["myform"].elements["sales"].value = "$" + totalSales.toFixed(2);
 			document.forms["myform"].elements["pay"].value = "$" + totalPay.toFixed(2);
 			
+			document.getElementById("div1").innerHTML = ("<table ><tr><th>Item Number</th><th>Quantity Sold</th><th>Sales Total</th><th>Commission</th></tr>")
+			+ ('<tr> <td>1</td> <td>' + item1Quant + '</td> <td>' + sales1 + '</td> <td>' + commission1 + '</td></tr>')
+			+ ('<tr> <td>1</td> <td>' + item2Quant + '</td> <td>' + sales2 + '</td> <td>' + commission2 + '</td></tr>')
+			+('<tr> <td>1</td> <td>' + item3Quant + '</td> <td>' + sales3 + '</td> <td>' + commission3 + '</td></tr>')
+			+('<tr> <td>1</td> <td>' + item4Quant + '</td> <td>' + sales4 + '</td> <td>' + commission4 + '</td></tr>');
+					
 		}
 	}
 	
@@ -82,19 +94,7 @@
 <script>
   $( document ).tooltip();
 </script>
-<!-- thinking of doing document.write script for results table -->
-<script>
-	function salesResultsTable(){
-	//loop through to calculate values
-	document.write("<table ><tr><th>Item Number</th><th>Quantity Sold</th><th>Sales Total</th><th>Commission</th></tr>");
-	for (i = 1; i < 7; i++) {
-		square = i * i;
-		cube = i * i * i;
-		document.write('<tr> <td>' + i + '</td> <td>' + square + '</td> <td>' + cube + '</td>');
-	}}
-</script>
-
-      
+    
       
 </head>
 
@@ -112,7 +112,7 @@
 <table>
 <tr>
 <td>Salesperson:</td>
-<td><label for="salesperson" class="name" id="tooltip-1">Salesperson Name</label><input type="text" name="salesperson" title="Please make sure that the salesperson's name is spelled correctly"></td>
+<td><label for="salesperson" class="name" id="tooltip-1"></label><input type="text" name="salesperson" title="Please make sure that the salesperson's name is spelled correctly"></td>
 </tr>
 <tr>
 <td>Item 1:</td>
@@ -144,7 +144,13 @@
 
 <input type="reset" value="RESET">
 </form>
+<section>
 
+<div id="div1"></div>
+<br>
+<br>
+
+</section>
 
 <footer>
 	<p> Nicole Horner Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a></p>
