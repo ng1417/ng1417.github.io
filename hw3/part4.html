@@ -7,11 +7,9 @@
 
 <title>CNIT133 hw3 Part 4</title> <!-- what appears in tab header -->
 <script>
-	var theNum1;//= Math.floor(Math.random() * 9);
-	var theNum2;//= Math.floor(Math.random() * 9);
 	function generateProblem() {
-		theNum1 = Math.floor(Math.random() * 9);
-		theNum2 = Math.floor(Math.random() * 9);
+		theNum1 = Math.floor(Math.random() * 10); //random number 0-9
+		theNum2 = Math.floor(Math.random() * 10);
 		document.getElementById("div1").innerHTML=("<h1>What is " + theNum1 + " times " + theNum2 + "?</h1>");
 	} 
 
@@ -20,15 +18,16 @@
 		if (!isNaN(answer)) {
 		 if(answer === (theNum1 * theNum2)) { //if the answer is correct
 			 var r =confirm("Very Good!  Would you like another question?");  //tell user they got it right and ask if they want to play again
-			 if(r == true) {  //if they want to play, generate a new question
+			 if(r == true) {  //if they want to play againS, generate a new question
 				 document.forms["myform"].reset();
 				 generateProblem();
 			 }
 			 else{  //if the user clicks cancel then say goodbye, do not generate new question
 				 document.getElementById("div1").innerHTML=("<h1>Thanks for playing.</h1>");
+				 document.forms["myform"].reset();
 			 }
 		 }
-		 else {
+		 else { //if user's answer is wrong tell them, ask again and clear last answer
 			 answer ="";
 			 document.getElementById("div1").innerHTML=("<h1>No. Please try again. <br>  What is " + theNum1 + " times " + theNum2 + "?</h1>");
 			 document.forms["myform"].reset();
@@ -61,16 +60,16 @@
 CNIT 133 Homework 3 - Part 4
 </h1>
 <!--  -->
-<section>
+
+<form name="myform" id="myform">
+ <input type="button" value="Ask me a multiplication question" onclick="generateProblem()">
+ <section>
 
 <div id="div1"></div>
 <br>
 <br>
 
-</section>
-<form name="myform" id="myform">
- <input type="button" value="Ask me a multiplication question" onclick="generateProblem()">
-               
+</section>              
 the answer is: 
 <input type="text" name="answer" class="num" title="The answer is:">
 
@@ -79,13 +78,7 @@ the answer is:
 <input type="reset" value="RESET" onclick="clearEverything()">
 </form>
 
-<section>
 
-<div id="div1"></div>
-<br>
-<br>
-
-</section>
 
 <footer>
 	<p> Nicole Horner Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a></p>
