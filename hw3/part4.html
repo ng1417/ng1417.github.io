@@ -63,18 +63,18 @@ CNIT 133 Homework 3 - Part 4
 
 <form name="myform" id="myform">
  <input type="button" value="Ask me a multiplication question" onclick="generateProblem()">
- <section>
 
 <div id="div1"></div>
 <br>
 <br>
-
-</section>              
-the answer is: 
+             
+The answer is: 
 <input type="text" name="answer" class="num" title="The answer is:">
 
+
+<input type="button" onclick="checkAnswer()" value="Click to Check Answer"> <!-- needs to clear answer box -->
 <br>
-<input type="button" onclick="checkAnswer()" value="check answer"> <!-- needs to clear answer box -->
+<br>
 <input type="reset" value="RESET" onclick="clearEverything()">
 </form>
 
