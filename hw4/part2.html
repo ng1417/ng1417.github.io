@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="cs133 homework 3 Part 4 page">
+<link rel="stylesheet" href="styles.css">
+<!-- Create a webpage that contains a script that will calculate compound interest on a principal of $1000 
+for interest rates of 5, 6, 7, 8, 9, and 10%, for years 1 through 10. The formula to use is :
+P is the principal (the initial amount you borrow or deposit) 
+r is the annual rate of interest (percentage)
+n is the number of years the amount is deposited
+A is the amount of money accumulated after n years, including interest
+A = P(1 + r)n 
+
+Output in table format the year followed by the total amount calculated for each of the interest rates of 5% - 10%. 
+(Be sure to include cents.) Your 3rd column should contain the corresponding interest rate. 
+For example, the first 5 table rows should display as: -->
+<!-- what appears in tab header -->
+<title>CNIT133 hw4 Part 2</title> 
+
+		
+		
+</head>
+
+<body><!-- here is where you see what is on the page -->
+
+<nav>
+	<a href="../hw4.html"> Homework 3 </a>|
+	<a href="../hw4/part1.html"> Part 1 </a>|
+	<a href="../hw4/part2.html"> Part 2 </a>|
+	<a href="../hw4/part3.html"> Part 3 </a>|
+	<a href="../hw4/part4.html"> Part 4 </a>|
+</nav>
+<h1>
+CNIT 133 Homework 4 - Part 2
+</h1>
+<p>
+
+<script>
+	//function compoundInterest() {
+		//A = P(1 + r)n 
+		var P = 1000; //P is the principal (the initial amount you borrow or deposit) 
+		var r = 0.05; //r is the annual rate of interest (percentage)
+		var n = 10; //n is the number of years the amount is deposited
+		var A = 0; //A is the amount of money accumulated after n years, including interest
+	
+		//loop through to calculate values
+		document.write("<table ><tr><th>Year</th><th>Amount with Interest</th><th>Rate</th></tr>");
+		for (i = 1; i <= n; i++) {
+			A=P*(1 + r)*i;
+			document.write('<tr> <td>' + i + '</td> <td>' + A + '</td> <td>' + r + '</td>');
+			}
+	
+	</script>
+</p>
+<footer>
+	<p> Nicole Horner Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a></p>
+	<a href="https://hills.ccsf.edu/~nhorner/cnit133/index.html">Back To Main Page</a>
+	<!-- this script writes the date the document was last modified -->
+	<script>
+    var dateModified = document.lastModified;
+    mydate = dateModified.slice(0,16);
+    document.write("Last updated: " + mydate);
+	</script>
+	<!--  <p>
+	<a class="noglo" href="http://validator.w3.org/check?uri=referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" alt="Valid HTML5" /></a>
+	<a class="noglo" href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
+	</p> -->
+</footer>
+
+</body>
+
+</html> 
