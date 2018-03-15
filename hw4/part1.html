@@ -7,14 +7,14 @@
 
 <!-- what appears in tab header -->
 <title>CNIT133 HW4 Part 1</title> 
-</head>
+
 
 <!--  The assignment: Part 1a: Create a webpage that contains a script, using the for statement, 
 that calculates the product and sum of every third integer from 5 to 20 inclusive and 
 then displays the results, along with some accompanying text.
 
 (Note: You should print a line that contains the result of 5 * 8 * 11 * 14 * 17 * 20 and 
-a second line that contains the result of 5 + 8 + 11 + 14 + 17 + 20). 75 and 2094400
+a second line that contains the result of 5 + 8 + 11 + 14 + 17 + 20). 75 and 2094400 48171200
 
 Part 1b: On the same webpage as Part 1b, create a script, using the while or do while statement, 
 that calculates the product and sum of every fourth integer from 3 to 31 inclusive 
@@ -26,20 +26,8 @@ and a second line that contains the result of 3 + 7 + 11 + 15 + 19 + 23 + 27 + 3
 Use jQuery UI to allow the user to drag an element to a specific area of the page - 
 can be any type of element. 
 -->
-<script>
-function calc3()
-{
-	var numbers = [];
-	var i = 5, x = 5;
-		for (i = 5; i < 20; i+3) {
-		document.write("i = "i + ", x = " + x);
-		i = i + 3;
-		x = x * (x + 3);
-		}
-		document.getElementById("demo").innerHTML = calc3(); 
-//output results
-}
-</script>
+
+</head>
 
 <body><!-- here is where you see what is on the page -->
 <nav >
@@ -50,7 +38,36 @@ function calc3()
 			<a href="../hw3/part4.html"> Part 4 </a>|
 			<a href="../hw3/extracredit.html"> Extra Credit </a>
 </nav>
-<p id="demo"></p>
+<p id="output"></p>
+<script>
+var z;
+function calc3()
+{
+	var myResult =" sum and multiplication of 5, 8, 11, 14,17, 20 <br>Here are the results: ";
+	
+	var addition = 5
+	var  multiplier = 3;
+	var sum = 0;
+	var product = 1;
+	var multResult;
+	
+	for (i = 0; i < 6; i++) {
+		
+		sum=sum + addition;
+		product = product * addition;
+		addition +=3;
+	}
+
+	
+   return myResult.concat("<br>sum = " + sum + "<br>product = " + product );
+ 
+}
+//output results
+document.getElementById("output").innerHTML = calc3(); 
+
+</script>
+
+
 <footer>
 	<p> Nicole Horner Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a></p>
 	<a href="https://hills.ccsf.edu/~nhorner/cnit133/index.html">Back To Main Page</a>
