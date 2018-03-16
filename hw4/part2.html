@@ -34,25 +34,38 @@ For example, the first 5 table rows should display as: -->
 <h1>
 CNIT 133 Homework 4 - Part 2
 </h1>
-<p>
+<p id="output"></p>
+
 
 <script>
-	//function compoundInterest() {
+	function compoundInterest() {
 		//A = P(1 + r)n 
 		var P = 1000; //P is the principal (the initial amount you borrow or deposit) 
-		var r = 0.05; //r is the annual rate of interest (percentage)
+		//var r = 0.05; //r is the annual rate of interest (percentage)
 		var n = 10; //n is the number of years the amount is deposited
 		var A = 0; //A is the amount of money accumulated after n years, including interest
-	
+		var table ="";
 		//loop through to calculate values
-		document.write("<table ><tr><th>Year</th><th>Amount with Interest</th><th>Rate</th></tr>");
-		for (i = 1; i <= n; i++) {
-			A=P*(1 + r)*i;
-			document.write('<tr> <td>' + i + '</td> <td>' + A + '</td> <td>' + r + '</td>');
+		//document.write("<table ><tr><th>Year</th><th>Amount with Interest</th><th>Rate</th></tr>");
+		//function tablemaking(mystring) {
+					
+			stop:	
+			for (x = 5; x <= 10; x++) {
+				var r = x * 0.01;
+				table +="\<table \>\<tr\><th>Year</th><th>Amount with Interest</th><th>Rate</th></tr>";
+					for ( i = 1; i <= n; i++) {
+					A=P*(1 + r)*i;
+					//document.write('<tr> <td>' + i + '</td> <td>' + A + '</td> <td>' + r + '</td>');
+					table += '<tr> <td>' + i + '</td> <td>' + A + '</td> <td>' + r + '</td>';
+				}
 			}
-	
-	</script>
-</p>
+			return table;
+		
+		}		
+		document.getElementById("output").innerHTML = compoundInterest();
+
+</script>
+
 <footer>
 	<p> Nicole Horner Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a></p>
 	<a href="https://hills.ccsf.edu/~nhorner/cnit133/index.html">Back To Main Page</a>
