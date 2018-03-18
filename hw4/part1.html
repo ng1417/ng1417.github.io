@@ -26,7 +26,7 @@
  <style>
 	#div1 {
 	    width: 350px;
-	    height: 170px;
+	    height: 200px;
 	    padding: 10px;
 	    border: 1px solid #aaaaaa;
 	}
@@ -47,6 +47,7 @@
 <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
  <p> sum and multiplication of 5, 8, 11, 14,17, 20 <br>Here are the results: </p>
 </div>
+<div2 id="div2>"></div2>
 
 <br>
 <img id="drag1" src="C:\Users\Nikki\Pictures\cat.jpg" draggable="true" ondragstart="drag(event)" width="69" height="69">
@@ -55,7 +56,7 @@ drag the cat over the results if you want to.
 var z;
 function calc3()
 {
-	var myResult =" sum and multiplication of 5, 8, 11, 14,17, 20 <br>Here are the results: ";
+	var myResult ="Sum and multiplication of 5, 8, 11, 14,17, 20 <br>Here are the results: ";
 	
 	var addition = 5
 	var  multiplier = 3;
@@ -74,9 +75,30 @@ function calc3()
    return myResult.concat("<br>sum = " + sum + "<br>product = " + product );
  
 }
+function calc4()
+{
+	var myResult ="<br><br>Sum and multiplication of 3, 7, 11, 15, 19, 23, 27, 31  <br>Here are the results: ";
+	
+	var addition = 3
+	var  multiplier = 4;
+	var sum = 0;
+	var product = 1;
+	var multResult;
+	var i = 0;
+	while (addition <=31) {
+		
+		sum=sum + addition;
+		product = product * addition;
+		addition +=4;
+	}
+
+	
+   return myResult.concat("<br>sum = " + sum + "<br>product = " + product );
+ 
+}
 //output results
 document.getElementById("div1").innerHTML = calc3(); 
-
+document.getElementById("div1").innerHTML += calc4(); 
 </script>
 
 
