@@ -49,20 +49,5 @@ input.num, input.money {text-align: right;}
     width: 5em;
   }
   
-tbody tr:nth-child(odd) td {
-  background-color: #ff8000;
-}
 
-tbody tr:nth-child(even) td {
-  background-color: #ffff00;
-}
-
- tbody th {
-  background-color: #800000;
-  color: white;
-}
-
- tbody tr:first-child td {
-  background-color: #FF0000;
-}
 
