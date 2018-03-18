@@ -17,9 +17,23 @@ Output in table format the year followed by the total amount calculated for each
 For example, the first 5 table rows should display as: -->
 <!-- what appears in tab header -->
 <title>CNIT133 hw4 Part 2</title> 
+	<style>	tbody tr:nth-child(odd) td {
+  background-color: #ff8000;
+}
 
-		
-		
+tbody tr:nth-child(even) td {
+  background-color: #ffff00;
+}
+
+ tbody th {
+  background-color: #800000;
+  color: white;
+}
+
+ tbody tr:first-child td {
+  background-color: #FF0000;
+} </style>
+
 </head>
 
 <body><!-- here is where you see what is on the page -->
@@ -40,33 +54,30 @@ For example, the first 5 table rows should display as: -->
 <script>
 	function compoundInterest() {
 		//A = P(1 + r)n 
-		var P = 1000; //P is the principal (the initial amount you borrow or deposit) 
+		var P = 1000.00; //P is the principal (the initial amount you borrow or deposit) 
 		//var r = 0.05; //r is the annual rate of interest (percentage)
 		var n = 10; //n is the number of years the amount is deposited
-		var A = 0; //A is the amount of money accumulated after n years, including interest
+		var A = 0.00; //A is the amount of money accumulated after n years, including interest
 		var table ="";
 		//loop through to calculate values
 		//document.write("<table ><tr><th>Year</th><th>Amount with Interest</th><th>Rate</th></tr>");
 		//function tablemaking(mystring) {
 					
-			stop:	
-			for (x = 5; x <= 10; x++) {
-				var r = x * 0.01;
-				table +="\<table \>\<tr\><th>Year</th><th>Amount with Interest</th><th>Rate</th></tr>";
-					for ( i = 1; i <= n; i++) {
-					A=P*(1 + r)*i;
-					//document.write('<tr> <td>' + i + '</td> <td>' + A + '</td> <td>' + r + '</td>');
-					table += '<tr> <td>' + i + '</td> <td>' + A + '</td> <td>' + r + '</td>';
+		for (x = 5; x <= 10; x++) {
+			var P = 1000.00; //P is the principal (the initial amount you borrow or deposit) 
+			var r = x * 0.01;
+			table +="\<table \>\<tr\><th>Year</th><th>Amount with Interest</th><th>Rate</th></tr>";
+			for ( i = 1; i <= n; i++) {
+				A=P*(1 + r);
+					table += '<tr> <td>' + i + '</td> <td>' + A.toFixed(2) + '</td> <td>' + r.toFixed(2) + '</td>';
+					P=A;
 				}
 			}
 			return table;
 		
 		}		
 		document.getElementById("output").innerHTML = compoundInterest();
-
 </script>
-
-<body>
 
 <footer>
 	<p> Nicole Horner Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a></p>
