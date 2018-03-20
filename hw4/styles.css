@@ -22,7 +22,7 @@ footer {
 	padding: 10px;
 	}
 	
-table, td {
+table, th, td {
 	border-collapse:collapse;
 	border:1px solid black;
 	text-align:center;
@@ -43,7 +43,10 @@ div.panel {
 }
 
 input.num, input.money {text-align: right;}
+input.product{
 
+	
+}
  label {
     display: inline-block;
     width: 5em;

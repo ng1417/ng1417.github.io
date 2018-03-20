@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="cs133 homework 4 part 3 page">
+<link rel="stylesheet" href="styles.css">
+
+<!-- what appears in tab header -->
+<title>CNIT133 HW4 Part 3</title> 
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <!--  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>-->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script>
+
+	function itemSales(quantity, value) {
+		if(isNaN(quantity)) {
+			quantity=0;
+		}
+		return (quantity*value);
+	}
+	function price(itemNo) {
+		value="";
+		switch(itemNo) {
+		    case "1":
+		        value = 2.98;
+		        break;
+		    case "2":
+		        value = 4.50;
+		        break;
+		    case "3":
+		        value  = 9.98;
+		        break;
+		    case "4":
+		        value = 4.49;
+		        break;
+		    case "5":
+		        value  = 6.87;
+		        break;
+		    default:
+		        text = "No product like that...";
+		}
+		    return value;
+	}
+
+	function calculateSales() {
+
+		var i, myPrice, totalSales, allSales= 0, chunk = 4;
+		for (i=0; i<20; i+=chunk) {
+		    myPrice=price(document.forms[0].elements[i].value).toFixed(2);
+		    document.forms[0].elements[i+2].value=myPrice;
+		    totalSales= itemSales(document.forms[0].elements[i+1].value, myPrice);
+		    document.forms[0].elements[i+3].value=totalSales.toFixed(2); 
+		    allSales+=totalSales;
+		  } 
+		document.forms[0].elements[20].value=allSales.toFixed(2);
+	}
+
+</script>
+
+<script>
+//validates the data entered is numeric and between 0-100 inclusive)
+	$(document).ready(function () {
+	    $('#myform').validate({ // initialize the plugin
+	    });
+	    $.validator.addClassRules({  //anything in this class gets validated with these rules
+	        num: {
+	            number: true,
+	           	min: 0, 
+		    	max: 10000} ,
+	    	name: {
+	    		required: true,
+	    		minlength: 1
+	    	}
+	});
+	});
+</script>
+
+</head>
+<!-- A mail-order house sells five different products whose retail prices are as follows: 
+product 1, $2.98, product 2, $4.50, product 3, $9.98, product 4, $4.49, product 5, $6.87. 
+Create a webpage that contains a script that inputs the following:
+
+a) Product number (1 through 5)
+b) Quantity sold for that product - (for the week)
+
+Your script should use a switch statement to help determine the retail price for each product 
+and should calculate and display the retail amount for each product and the total retail amount 
+of all the products sold last week. Use form input boxes to obtain the product numbers (hard coded as 1-5) 
+and the quantity sold for each product from the user. See below how the output should look like 
+(not showing the form here). Be sure to check that the input field, quantity sold, is numeric. -->
+
+<body><!-- here is where you see what is on the page -->
+
+<nav >
+			<a href="../hw3.html"> Homework 2 </a>|
+			<a href="../hw3/part1.html"> Part 1 </a>|
+			<a href="../hw3/part2.html"> Part 2 </a>|
+			<a href="../hw3/part3.html"> Part 3 </a>|
+			<a href="../hw3/part4.html"> Part 4 </a>|
+			<a href="../hw3/extracredit.html"> Extra Credit </a>
+</nav>
+<form name="myform" id="myform">
+<table>
+
+<tr><th>Product Number</th><th>Quantity</th><th>Price</th><th>Amount</th></tr>
+<tr>
+<td><input type="text" name="product1" disabled="disabled" value=1></td>
+<td><input type="text" name="quantity1" class="num"></td>
+<td><input type="text" name="price1" class="num"></td>
+<td><input type="text" id="sales1" name="sales1" class="num"></td>
+</tr>
+<tr>
+<td><input type="text" name="product2" disabled="disabled" value=2></td>
+<td><input type="text" name="quantity2" class="num"></td>
+<td><input type="text" name="price2" class="num"></td>
+<td><input type="text" id="sales2" name="sales2" class="num"></td>
+</tr><tr>
+<td><input type="text" name="product3" disabled="disabled" value=3></td>
+<td><input type="text" name="quantity3" class="num"></td>
+<td><input type="text" name="price3" class="num"></td>
+<td><input type="text" id="sales3" name="sales3" class="num"></td>
+</tr><tr>
+<td><input type="text" name="product4" disabled="disabled" value=4></td>
+<td><input type="text" name="quantity4" class="num"></td>
+<td><input type="text" name="price4" class="num"></td>
+<td><input type="text" id="sales4" name="sales4" class="num"></td>
+</tr>
+<tr>
+<td><input type="text" name="product5" disabled="disabled" value=5></td>
+<td><input type="text" name="quantity5" class="num"></td>
+<td><input type="text" name="price5" class="num"></td>
+<td><input type="text" id="sales5" name="sales5" class="num"></td>
+</tr>
+<tr>
+<td colspan="3">Total Amount Sold</td> 
+<td><input id="totalSalesAmount" type="text" name="totalSalesAmount" class="money"  size="20" readonly></td>
+
+</tr>
+</table>
+<br>
+<input type="button" onclick="calculateSales()" value="Calculate">
+
+<input type="reset" value="RESET">
+</form>
+<div id="div1">
+
+</div>
+
+<br>
+
+
+
+<footer>
+	<p> Nicole Horner Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a></p>
+	<a href="https://hills.ccsf.edu/~nhorner/cnit133/index.html">Back To Main Page</a>
+	<!-- this script writes the date the document was last modified -->
+	<script>
+    var dateModified = document.lastModified;
+    mydate = dateModified.slice(0,16);
+    document.write("Last updated: " + mydate);
+	</script>
+	<!--  <p>
+	<a class="noglo" href="http://validator.w3.org/check?uri=referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" alt="Valid HTML5" /></a>
+	<a class="noglo" href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
+	</p> -->
+</footer>
+
+</body>
+
+</html> 
