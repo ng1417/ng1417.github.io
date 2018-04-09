@@ -21,9 +21,9 @@ Utilize jQuery UI for a button that will be used to display the instruction: "En
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!--  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>-->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
->//integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="crossorigin="anonymous"
-	</script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js">
+	//integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="crossorigin="anonymous"
+</script>
 <script
 	src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 <!-- the following script is needed for jquery validation of input -->
@@ -35,57 +35,56 @@ Utilize jQuery UI for a button that will be used to display the instruction: "En
 <script>
 	// show/hide instructions
 
-$(document).ready(function(){
-  $(".flip").click(function(){
-    $(".panel").slideToggle("slow");
-  });
-});
+	$(document).ready(function() {
+		$(".flip").click(function() {
+			$(".panel").slideToggle("slow");
+		});
+	});
 </script>
 <script>
-// validation for form
-	$(document).ready(function () {
-	    $('#myform').validate({ // initialize the plugin
-	    });
-	    $.validator.addClassRules({  //anything in this class gets validated with these rules
-	        state: {
-	        	required: true,
-	        	minlength: 2
-		    	} 
-	});
+	//validation for form
+	$(document).ready(function() {
+		$('#myform').validate({ // initialize the plugin
+		});
+		$.validator.addClassRules({ //anything in this class gets validated with these rules
+			state: {
+				required: true,
+				minlength: 2
+			}
+		});
 	});
 
 	function displayCensusInfo() {
 		var found = false; //assume not found so error is trigger if it isn't
-		var census = [["AL", "Alabama" , "Montgomery","4,779,736"], 
-			["AK", "Alaska", "Juneau", "710,231"],
-			["AZ",	"Arizona", "Phoenix",	"6,392,017"],
-			["AR",	"Arkansas",	"Little Rock",	"2,915,918"],
-			["CA",	"California",	"Sacramento", "37,253,956"],
-			["CO",	"Colorado",	"Denver", "5,029,196"]];
-		
-			var myState = document.forms[0].elements[0].value.toLowerCase();
+		var census = [ [ "AL", "Alabama", "Montgomery", "4,779,736" ],
+				[ "AK", "Alaska", "Juneau", "710,231" ],
+				[ "AZ", "Arizona", "Phoenix", "6,392,017" ],
+				[ "AR", "Arkansas", "Little Rock", "2,915,918" ],
+				[ "CA", "California", "Sacramento", "37,253,956" ],
+				[ "CO", "Colorado", "Denver", "5,029,196" ] ];
 
-			if (myState=== undefined || !isNaN(parseInt(myState)) ) {
-				document.getElementById("notFound").innerHTML = "<br>Please enter valid a State, please see instructions."; 
-				found = true; //this is here so the other error doesn't override this error
-			}
+		var myState = document.forms[0].elements[0].value.toLowerCase();
+
+		if (myState === undefined || !isNaN(parseInt(myState))) {
+			document.getElementById("notFound").innerHTML = "<br>Invalid State, please see instructions.";
+			found = true; //this is here so the other error doesn't override this error
+		}
 		for (i = 0; i < census.length; i++) {//loop through array of state info
-			if (myState === census[i][0].toLowerCase() || myState === census[i][1].toLowerCase()) { //if state abbr or name found
+			if (myState === census[i][0].toLowerCase()
+					|| myState === census[i][1].toLowerCase()) { //if state abbr or name found
 				document.forms[0].elements[1].value = census[i][0]; //write the related state info to form
 				document.forms[0].elements[2].value = census[i][1];
 				document.forms[0].elements[3].value = census[i][2];
 				document.forms[0].elements[4].value = census[i][3];
-				found = true;}//turn not found error off
-			} 
-				
-		if (found == false){//state not found
-			document.getElementById("notFound").innerHTML = "<br>State not found, please see instructions."; 
+				found = true;
+			}//turn not found error off
+		}
+
+		if (found == false) {//state not found
+			document.getElementById("notFound").innerHTML = "<br>State not found, please see instructions.";
 		}
 
 	}
-
-
-
 </script>
 
 
@@ -104,12 +103,13 @@ $(document).ready(function(){
 	<div class="flip">Click Here to Show/Hide Instructions</div>
 
 	<div class="panel">
-		<p>Enter a state abbreviation or name (lower or upper case is ok). The only states we currently have information
-			for are" AZ, AK, AL, AR, CA and CO.</p>
+		<p>Enter a state abbreviation or name (lower or upper case is ok).
+			The only states we currently have information for are" AZ, AK, AL,
+			AR, CA and CO.</p>
 	</div>
 	<form name="myform" id="myform">
-	Enter the State you want to lookup: 
-	<input type="text" id="lookupState" name="lookupState" class = "state" >
+		Enter the State you want to lookup: <input type="text"
+			id="lookupState" name="lookupState" class="state">
 		<table>
 
 			<tr>
@@ -119,8 +119,10 @@ $(document).ready(function(){
 				<th>Population</th>
 			</tr>
 			<tr>
-				<td><input type="text" id="abbr" name="abbr" disabled="disabled"></td>
-				<td><input type="text" id="state" name="state" disabled="disabled"></td>
+				<td><input type="text" id="abbr" name="abbr"
+					disabled="disabled"></td>
+				<td><input type="text" id="state" name="state"
+					disabled="disabled"></td>
 				<td><input type="text" id="capital" name="capital"
 					disabled="disabled"></td>
 				<td><input type="text" id="population" name="population"
@@ -128,7 +130,8 @@ $(document).ready(function(){
 			</tr>
 		</table>
 		<br> <input type="button" onclick="displayCensusInfo()"
-			value="State Info"> <input type="reset" value="Reset" onClick="window.location.reload()">
+			value="State Info"> <input type="reset" value="Reset"
+			onClick="window.location.reload()">
 	</form>
 	<div id="notFound" class="error"></div>
 
@@ -144,10 +147,10 @@ $(document).ready(function(){
 			To Main Page</a>
 		<!-- this script writes the date the document was last modified -->
 		<script>
-    var dateModified = document.lastModified;
-    mydate = dateModified.slice(0,16);
-    document.write("Last updated: " + mydate);
-	</script>
+			var dateModified = document.lastModified;
+			mydate = dateModified.slice(0, 16);
+			document.write("Last updated: " + mydate);
+		</script>
 		<!--  <p>
 	<a class="noglo" href="http://validator.w3.org/check?uri=referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" alt="Valid HTML5" /></a>
 	<a class="noglo" href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
