@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Create a webpage containing a form that displays an input text box, radio buttons, checkboxes, and select items; 
+along with a script that executes form validation. Your script should validate whether the user has entered data in the input text box, 
+has checked a radio button, has checked at least one checkbox, and has selected an option from the select items. 
+Use a submit button to invoke the validation script, so that the form is processed only when the form fields are valid. 
+If a field is invalid then display a message to the user. 
+In your form statement, use method="post" and an action that can be a mailto or a webpage(displaying that the form has been processed), 
+but be sure to use input type="submit" for your submit button. Alternatively you can leave out the form's action and method, 
+but then you should use an input type="button", along with displaying any appropriate messages.  -->
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="cs133 homework 5 part 1 page">
+<link rel="stylesheet" href="styles.css">
+
+<!-- what appears in tab header -->
+<title>CNIT133 Homework 5 Part 1</title>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- the following script is needed for jquery validation of input -->
+
+<script
+	src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
+<script>
+	// validation for form
+	$(document).ready(function() {
+		$("#myform").validate({
+			//error messages
+			messages : {
+				name : "Please enter your name",
+				feeling : "Please choose a feeling",
+				color : "Please choose at least one color",
+				animal : "Please choose an animal",
+			},
+			//next tells where to put the errors.  Copied it from example, couldn't get it work when I tried to modify it
+			errorPlacement : function(error, element) {
+				if (element.is(":radio") || element.is(":checkbox")) {
+					error.appendTo(element.parent());
+				} else {
+					error.insertAfter(element);
+				}
+			}
+		});
+	});
+</script>
+</head>
+
+<body>
+	<nav>
+		<a href="../hw5.html"> Homework 5 </a>| <a href="../hw5/part1.html">
+			Part 1 </a>| <a href="../hw5/part2.html"> Part 2 </a>| <a
+			href="../hw5/part3.html"> Part 3 </a>
+	</nav>
+	<h3>Part 1 of homework 3<br> Validating Form Input</h3>
+	<br>
+
+	<form action="processed.html" method="post" id="myform" name="myform">
+		<!-- if validated, send them to this page.  Would be nice to do something fancier of I have time -->
+		<table>
+			<tr>
+			<!--text box -->
+				<td>Name</td>
+				<td><input type="text" name="name" id="name" size="20"
+					class="required" autofocus></td>
+			</tr>
+			<tr>
+				<!-- radio buttons -->
+				<td>How are you feeling?</td>
+				<td>Great<input type="radio" id="feeling1" name="feeling"
+					class="required" value="great"> Fine<input type="radio"
+					id="feeling2" value="poor" name="feeling">Snotty<input
+					type="radio" id="feeling3" value="snotty" name="feeling"></td>
+			</tr>
+			<!-- checkboxes -->
+			<tr>
+				<td>Select one or more:</td>
+				<td>Blue<input type="checkbox" id="blue" name="color"
+					value="Blue" class="required"> 
+					Pink<input type="checkbox"
+					id="pink" value="pink" name="color" class="required">
+				</td>
+			</tr>
+			<tr>
+				<!-- dropdown list -->
+				<td><label for="animal" class="label">animal</label></td>
+				<td><select name="animal" id="animal" class="required">
+						<option value="">-Choose one-</option>
+						<option value="dog">dog</option>
+						<option value="goat">goat</option>
+						<option value="sloth">sloth</option>
+						<option value="echidna">echidna</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td><input type="submit" id="submit_button" value="SUBMIT"></td>
+				<td><input type="reset" value="RESET"
+					onclick="window.location.reload();"></td>
+			</tr>
+		</table>
+	</form>
+
+	<footer>
+		<p>
+			Nicole Horner Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a>
+		</p>
+		<a href="https://hills.ccsf.edu/~nhorner/cnit133/index.html">Back
+			To Main Page</a>
+		<!-- this script writes the date the document was last modified -->
+		<script>
+			var dateModified = document.lastModified;
+			mydate = dateModified.slice(0, 16);
+			document.write("Last updated: " + mydate);
+		</script>
+		<!--  <p>
+	<a class="noglo" href="http://validator.w3.org/check?uri=referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" alt="Valid HTML5" /></a>
+	<a class="noglo" href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
+	</p> -->
+	</footer>
+
+</body>
+
+</html>

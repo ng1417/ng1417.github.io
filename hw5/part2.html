@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="cs133 homework 35 Part 2 page">
+<link rel="stylesheet" href="styles.css">
+<!-- Create a 2nd webpage that contains a script that utilizes 2 pulldown menus. 
+The first one should utilize an onchange event handler. 
+The second should utilize a button with an onclick event handler to navigate to a page after an option is selected. 
+Each pulldown menu should include at least 3 URL destinations.  -->
+<title>CNIT133 Homework 5 Part 2</title>
+
+<script>
+	//this function takes a form as an argument, uses the array index of the item selected to find value and then takes the user to the url in that value
+	function goToPage(myForm) {
+		var myDestination = myForm.destinationList.options[myForm.destinationList.selectedIndex].value; //use the array index to find the value of the selected item
+		window.location = myDestination; //go to the value 
+	}
+</script>
+</head>
+
+<body>
+	<nav>
+		<a href="../hw5.html"> Homework 5 </a>| <a href="../hw5/part1.html">
+			Part 1 </a>| <a href="../hw5/part2.html"> Part 2 </a>| <a
+			href="../hw5/part3.html"> Part 3 </a>
+	</nav>
+	<form>
+		<h3>Select one of these destinations for research</h3>
+		<select name="destinationList" onChange="goToPage(this.form);"><!-- call function when destination selected -->
+			<!--when the user makes a selection it is automatically processed -->
+			<option>Choose Destination:</option>
+			<option value="https://www.google.com/search?q=hawaii">Hawaii</option>
+			<option value="https://www.google.com/search?q=new%20york">New York</option>
+			<option value="https://www.google.com/search?q=miami">Miami</option>
+		</select>
+	</form>
+
+	<form>
+		<h3>When you are ready to book a vacation, select a travel site
+			and click Go</h3>
+		<!-- this has a dropdown list and requires the user to select, then click go button -->
+		<select name="destinationList">
+			<option value="http://www.expedia.com/">Expedia</option>
+			<option value="http://www.priceline.com/">Priceline</option>
+			<option value="http://www.travelocity.com/">Travelocity</option>
+		</select> <input type="button" value="Go" onClick="goToPage(this.form);">
+	</form>
+
+	<footer>
+		<p>
+			Nicole Horner Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a>
+		</p>
+		<a href="https://hills.ccsf.edu/~nhorner/cnit133/index.html">Back
+			To Main Page</a>
+		<!-- this script writes the date the document was last modified -->
+		<script>
+			var dateModified = document.lastModified;
+			mydate = dateModified.slice(0, 16);
+			document.write("Last updated: " + mydate);
+		</script>
+		<!--  <p>
+	<a class="noglo" href="http://validator.w3.org/check?uri=referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" alt="Valid HTML5" /></a>
+	<a class="noglo" href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
+	</p> -->
+	</footer>
+
+</body>
+
+</html>
