@@ -6,24 +6,24 @@
 <link rel="stylesheet" href="styles.css">
 <!-- Create a webpage that contains a script that calculates the squares and cubes of the numbers 1 to 6 
 and outputs text that displays (using document.write statements) the resulting values in a table format, as follows: -->
-<title>CNIT133 HW2 Part 4</title> <!-- what appears in tab header -->
+<title>CNIT133 HW2 Part 4</title>
+<!-- what appears in tab header -->
 </head>
-<body><!-- here is where you see what is on the page -->
-<nav >
-			<a href="../hw2.html"> Homework 2 </a>|
-			<a href="../hw2/part1.html"> Part 1 </a>|
-			<a href="../hw2/part2.html"> Part 2 </a>|
-			<a href="../hw2/part3.html"> Part 3 </a>|
-			<a href="../hw2/part4.html"> Part 4 </a>|
-			<a href="../hw2/extracredit.html"> Extra Credit </a>
+<body>
+	<!-- here is where you see what is on the page -->
+	<nav>
+		<a href="../hw2.html"> Homework 2 </a>| <a href="../hw2/part1.html">
+			Part 1 </a>| <a href="../hw2/part2.html"> Part 2 </a>| <a
+			href="../hw2/part3.html"> Part 3 </a>| <a href="../hw2/part4.html">
+			Part 4 </a>| <a href="../hw2/extracredit.html"> Extra Credit </a>
 	</nav>
-<h1>
-CNIT 133 Homework 2 - Part 4
-</h1>
-<p>This script calculates the squares and cubes of the numbers 1 to 6 
-and outputs text that displays (using document.write statements) the resulting values in a table format, as follows:
-<!-- script to generate table with squared and cubed values of 1-6 -->
-<script>
+	<h1>CNIT 133 Homework 2 - Part 4</h1>
+	<p>
+		This script calculates the squares and cubes of the numbers 1 to 6 and
+		outputs text that displays (using document.write statements) the
+		resulting values in a table format, as follows:
+		<!-- script to generate table with squared and cubed values of 1-6 -->
+		<script>
 	var i, number, square, cube;
 	//loop through to calculate values
 	document.write("<table ><tr><th>Number</th><th>Square</th><th>Cube</th></tr>");
@@ -33,19 +33,22 @@ and outputs text that displays (using document.write statements) the resulting v
 		document.write('<tr> <td>' + i + '</td> <td>' + square + '</td> <td>' + cube + '</td>');
 	}
 </script>
-</p>
-<footer>
-	<p> Nicole Horner Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a></p>
-	<a href="https://hills.ccsf.edu/~nhorner/cnit133/index.html">Back To Main Page</a>
-	<!-- this script writes the date the document was last modified -->
-	<script>
+	</p>
+	<footer>
+		<p>
+			Nicole Horner Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a>
+		</p>
+		<a href="https://hills.ccsf.edu/~nhorner/cnit133/index.html">Back
+			To Main Page</a>
+		<!-- this script writes the date the document was last modified -->
+		<script>
     var dateModified = document.lastModified;
     mydate = dateModified.slice(0,16);
     document.write("Last updated: " + mydate);
 	</script>
-	<!--  <p>
+		<!--  <p>
 	<a class="noglo" href="http://validator.w3.org/check?uri=referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" alt="Valid HTML5" /></a>
 	<a class="noglo" href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
 	</p> -->
-</footer>
+	</footer>
 </body>

@@ -1,5 +1,5 @@
 body {
-	background-color: cornsilk;
+	background-color: #f9f7f7;
 }
 
 h1 {
@@ -50,4 +50,10 @@ input.num, input.money {
 label {
 	display: inline-block;
 	width: 5em;
+}
+
+div.error {
+	font-family: verdana;
+	font-style: bold;
+	color:red;
 }

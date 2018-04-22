@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Create a webpage that contains a script that has  a function that uses Math.round, Math.sqrt and Math.floor to:
+
+a) round the floating-point number to the nearest integer
+b) calculate the square root of the floating-point number and round it to an integer
+c) round the floating-point number to the nearest tenths position
+d) round the floating-point number to the nearest hunderdths position
+e) round the floating-point number to the nearest thousandths position
+
+Your page should allow entering a floating-point number with at least 4 decimal positions. 
+Your script should display the original floating-point number, the number rounded to the nearest integer, 
+the square root of the number that is then rounded to an integer, 
+the number rounded to the nearest tenth, the number rounded to the nearest hundredth, 
+and the number rounded to the nearest thousandth. Be sure to use parseFloat() for the inputted number. 
+Use a form input box for user input and a textarea to display the output. 
+When displaying the output, be sure to use toFixed() for displaying the number to the 
+nearest tenths, hundredths, and thousandths postions. 
+Validate the input and display an error message if the input is invalid. It is acceptable to use jQuery for this problem.
+  -->
+<head>
+<meta charset="utf-8">
+<meta name="description" content="cs133 homework 6 part 1 page">
+<link rel="stylesheet" href="styles.css">
+
+<!-- what appears in tab header -->
+<title>CNIT133 Homework 6 Part 1</title>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script>
+
+//validation for form
+ /* $(document).ready(function () {
+
+  jQuery.validator.addMethod("fourDecimals", function(value, element) {
+        return this.optional(element) || /^\d{0,4}(\.\d{4})?$/i.test(value);
+    }, "You must include four decimal places");
+
+    $('#myform').validate({ // initialize the plugin
+        rules: {
+              number: {
+                required: true,
+                number: true,
+                fourDecimals: true
+            }
+        },
+    });
+
+}); */
+	//I decided not to write extra functions for these calculations since they are so simple and self-explanatory
+	function roundNumber() {
+		var myRegEx = /^\d{0,9}(\.\d{4,})$/;
+		var myNumber = parseFloat(document.getElementById("number").value);
+		if (myNumber === undefined || isNaN(myNumber) || !myRegEx.test(myNumber)) {
+			document.myform.output.value = "Invalid, please enter a number with at least 4 decimal places.";
+		}
+		else {
+		document.myform.output.value = "The number you entered is " + myNumber
+				+ "\nThe rounded integer is " + myNumber.toFixed(0)
+				+ "\nThe square root is " + Math.sqrt(myNumber).toFixed(0)
+				+ "\nRounded to the nearest tenth is " + myNumber.toFixed(1)
+				+ "\nRounded to the nearest thousandth is "
+				+ myNumber.toFixed(2);
+		}
+	}
+</script>
+
+</head>
+
+<body>
+	<!-- here is where you see what is on the page -->
+
+	<nav>
+		<a href="../hw6.html"> Homework 6 </a>| <a href="../hw6/part1.html">
+			Part 1 </a>| <a href="../hw6/part2.html"> Part 2 </a>| <a
+			href="../hw6/part3.html"> Part 3 </a>|
+	</nav>
+
+	<form name="myform" id="myform">
+		Enter a number:<input type="text" size="20" id="number" name="number">
+		<!-- number the user enters -->
+		<input type="button" value="Round this number" onclick="roundNumber()"><br>
+		<textarea id="output" rows="5" cols="50" readonly> 
+         </textarea>
+		<br>
+		<!--  where the output ends up -->
+
+		<br> <br> <input type="reset" value="RESET">
+			</form>
+
+	<footer>
+		<p>
+			Nicole Horner Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a>
+		</p>
+		<a href="https://hills.ccsf.edu/~nhorner/cnit133/index.html">Back
+			To Main Page</a>
+		<!-- this script writes the date the document was last modified -->
+		<script>
+			var dateModified = document.lastModified;
+			mydate = dateModified.slice(0, 16);
+			document.write("Last updated: " + mydate);
+		</script>
+		<!--  <p>
+	<a class="noglo" href="http://validator.w3.org/check?uri=referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" alt="Valid HTML5" /></a>
+	<a class="noglo" href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
+	</p> -->
+	</footer>
+
+</body>
+
+</html>

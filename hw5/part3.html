@@ -18,20 +18,14 @@ Utilize jQuery UI for a button that will be used to display the instruction: "En
 <title>CNIT133 Homework 5 Part 3</title>
 <link rel="stylesheet"
 	href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<!--  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js">
 	//integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="crossorigin="anonymous"
 </script>
 <script
 	src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 <!-- the following script is needed for jquery validation of input -->
-<script
-	src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
-<!--  this is a different version of the one above, I should test which one works and delete the other -->
-<script
-	src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
 <script>
 	// show/hide instructions
 
@@ -45,17 +39,17 @@ Utilize jQuery UI for a button that will be used to display the instruction: "En
 	//validation for form
 	$(document).ready(function() {
 		$('#myform').validate({ // initialize the plugin
-		});
-		$.validator.addClassRules({ //anything in this class gets validated with these rules
-			state: {
+		rules: {
+			LookupState: {
 				required: true,
 				minlength: 2
 			}
-		});
+		}
+	});
 	});
 
 	function displayCensusInfo() {
-		var found = false; //assume not found so error is trigger if it isn't
+		var found = false; //assume not found so error is displayed if it isn't
 		var census = [ [ "AL", "Alabama", "Montgomery", "4,779,736" ],
 				[ "AK", "Alaska", "Juneau", "710,231" ],
 				[ "AZ", "Arizona", "Phoenix", "6,392,017" ],
@@ -109,7 +103,7 @@ Utilize jQuery UI for a button that will be used to display the instruction: "En
 	</div>
 	<form name="myform" id="myform">
 		Enter the State you want to lookup: <input type="text"
-			id="lookupState" name="lookupState" class="state">
+			id="lookupState" name="lookupState" class="state" required>
 		<table>
 
 			<tr>
