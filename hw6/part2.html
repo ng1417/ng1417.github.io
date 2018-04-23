@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Create a webpage that contains a script using a form that allows the user to input several lines of text 
+and a search character and uses the String method charAt to determine the number of occurrences of the search character within the text. 
+Use a form textarea for the text and a form input box for the search character. If the search character is found within the text, 
+display the number of occurrences of the search character in another form input box or a textarea. 
+If the search character is not found within the text then display within a new window (using the window.open method), the message, 
+'Search character not found in text string!' along with the search character. Your new window should be a width of 300 pixels, 
+height of 100 pixels, and should not obscure any of the main content already on the page.
+  -->
+<head>
+<meta charset="utf-8">
+<meta name="description" content="cs133 homework 6 part 2 page">
+<link rel="stylesheet" href="styles.css">
+
+<!-- what appears in tab header -->
+<title>CNIT133 Homework 6 Part 2</title>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script>
+	function searchText() {
+		var myText = document.getElementById("searchMe").value;
+		var myChar = document.getElementById("charToSearch").value;
+		var notFoundText = "No occurences found!"
+		if (myChar === "" || myText === "") {
+			document.myform.output.value = "Please enter both values";
+		} else {
+			var count = myText.split(myChar).length - 1;
+			if(count > 0) {
+			document.myform.output.value = count + " times";
+			}
+			else {
+		          // open window so it isn't covering other stuff.  This was the first solution I found that didn't cover the other stuff in chrome.
+		          var windowSize = {
+    				width: 300,
+   					 height: 100,
+					};
+				var windowLocation = {
+    				left:  (window.screen.availLeft + (window.screen.availWidth / 2)) - (windowSize.width / 2),
+    				top: (window.screen.availTop + (window.screen.availHeight / 2)) - (windowSize.height / 2)
+					};
+		      	 var errWindow = window.open("", "new_window", 'width=' + windowSize.width + ', height=' + windowSize.height + ', left=' + windowLocation.left + ', top=' + windowLocation.top);
+		          	          errWindow.focus();
+		         
+		         errWindow.document.write(notFoundText);
+			}
+		}
+	}
+</script>
+
+</head>
+
+<body>
+	<!-- here is where you see what is on the page -->
+
+	<nav>
+		<a href="../hw6.html"> Homework 6 </a>| <a href="../hw6/part1.html">
+			Part 1 </a>| <a href="../hw6/part2.html"> Part 2 </a>| <a
+			href="../hw6/part3.html"> Part 3 </a>|
+	</nav>
+
+	<form name="myform" id="myform">
+		<!-- number the user enters -->
+		Enter the text you wish to search: <br> <input type="text"
+			size="250" id="searchMe"> <br> Enter the character you
+		want to search for:<input type="text" size="5" id="charToSearch"
+			name="charToSearch"> <br> Instances of:<input
+			type="text" size="30" id="output" name="output" readonly> <br>
+		<input type="button" value="Search" onclick="searchText()"><br>
+		<input type="reset" value="RESET">
+	</form>
+
+	<footer>
+		<p>
+			Nicole Horner Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a>
+		</p>
+		<a href="https://hills.ccsf.edu/~nhorner/cnit133/index.html">Back
+			To Main Page</a>
+		<!-- this script writes the date the document was last modified -->
+		<script>
+			var dateModified = document.lastModified;
+			mydate = dateModified.slice(0, 16);
+			document.write("Last updated: " + mydate);
+		</script>
+		<!--  <p>
+	<a class="noglo" href="http://validator.w3.org/check?uri=referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" alt="Valid HTML5" /></a>
+	<a class="noglo" href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
+	</p> -->
+	</footer>
+
+</body>
+
+</html>
