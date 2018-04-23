@@ -57,3 +57,7 @@ div.error {
 	font-style: bold;
 	color:red;
 }
+input {
+   padding-top: 0;
+   padding-left: 0;
+}
