@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Create a webpage that does the following:
+1. Using toString(), toLocaleString() and toUTCString() for the Date object, write the current date and time in these 3 formats. 
+Using the getTimezoneOffset(), write the hours difference between PST or PDT (Pacific Standard Time or Pacific Daylight Time) and UTC, 
+and the hours difference between EST or EDT (Eastern Standard Time or Eastern Daylight Time) and UTC. 
+Note: EST is 3 hours ahead of PST (Pacific Standard Time).  
+Note that for EDT (Eastern Daylight Time), the hours difference between EDT and UTC changes by one hour.
+
+2. Input a telephone number as a string in the format (999) 999-9999. The script should use String method split to extract the area code as a token, 
+the first 3 digits of the phone number as a token, and the last 4 digits of the phone number as a token. Display the area code in one text field 
+and the seven-digit phone number in another text field. I suggest that you use the jQuery mask for input. 
+Be sure to display the desired format for the phone number, e.g., (999) 999-9999.-->
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="cs133 homework 6 part 2 page">
+<link rel="stylesheet" href="styles.css">
+
+<!-- what appears in tab header -->
+<title>CNIT133 Homework 6 Part 2</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="jquery.maskedinput.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+</head>
+<h2>Homework 6 Part 3</h2>
+<p>Click the button to display todays day of the month.</p>
+<button onclick="myDate()">Dates</button>
+
+<p id="date"></p>
+
+<form name="myform" id="myform">
+		Enter a phone number in this format (555)555-5555:
+		<br>
+		<input type="text" size="10" id="phone" name="phone" />  
+		<br>
+		<!-- number the user enters -->
+		<input type="button" value="check this number" onclick="checkNumber()"><br>
+<br>
+Area code:<input type="text" size="3" id="areacode" name="areacode" readonly>
+7-digit number:<input type="text" size="7" id="localnum" name="localnum" readonly><br>
+3-digit number:<input type="text" size="7" id="three" name="three" readonly>
+4-digit number:<input type="text" size="7" id="four" name="four" readonly>
+
+<br> <br> <input type="reset" value="RESET">
+			</form>
+
+<script>
+function myDate() {
+    var d = new Date();
+    var pdtDiff = d.getTimezoneOffset();
+    var pdtHoursDiff = pdtDiff /60;
+    var edtHoursDiff = pdtHoursDiff-3;
+    document.getElementById("date").innerHTML = d.toString() + "<br> UTC : " + d.toUTCString() + "<br>toLocaleString() : " + d.toLocaleString() + 
+    "<br> Hours difference PDT to UTC : " + pdtHoursDiff + "<br> EDT to UTC : " + edtHoursDiff;
+}
+</script></html>
+
+
+
+<script>
+// this validates the phone number is valid
+$( "#myform" ).validate({
+  rules: {
+    phone: {
+      required: true,
+      phoneUS: true
+    }
+  }
+});
+//this masks the phone number entered, puts parens and dash
+jQuery(function($){
+	   $("#phone").mask("(999)999-9999");
+});
+
+//this function splits the phone number into 3 parts, then displays them as area code, 7 digit number ,3 and 4 digit tokens
+function checkNumber() {
+	var myPhone = document.getElementById("phone").value;
+	var area = myPhone.substr(1, 3);
+	var three = myPhone.substr(5, 3);
+	var four = myPhone.substr(9, 12);
+	var digits = three.concat(four);
+	document.myform.areacode.value = area;
+	document.myform.three.value = three;
+	document.myform.four.value = four;
+	document.myform.localnum.value = digits;
+	}
+</script>
+
+<footer>
+		<p>
+			Nicole Horner Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a>
+		</p>
+		<a href="https://hills.ccsf.edu/~nhorner/cnit133/index.html">Back
+			To Main Page</a>
+		<!-- this script writes the date the document was last modified -->
+		<script>
+			var dateModified = document.lastModified;
+			mydate = dateModified.slice(0, 16);
+			document.write("Last updated: " + mydate);
+		</script>
+		<!--  <p>
+	<a class="noglo" href="http://validator.w3.org/check?uri=referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" alt="Valid HTML5" /></a>
+	<a class="noglo" href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
+	</p> -->
+	</footer>
+
+</body>
+
+</html>
