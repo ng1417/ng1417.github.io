@@ -34,6 +34,7 @@ height of 100 pixels, and should not obscure any of the main content already on 
 			}
 			else {
 		          // open window so it isn't covering other stuff.  This was the first solution I found that didn't cover the other stuff in chrome.
+		          document.myform.output.value = "";
 		          var windowSize = {
     				width: 300,
    					 height: 100,
