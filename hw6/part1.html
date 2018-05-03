@@ -59,8 +59,9 @@ Validate the input and display an error message if the input is invalid. It is a
 				+ "\nThe rounded integer is " + myNumber.toFixed(0)
 				+ "\nThe square root is " + Math.sqrt(myNumber).toFixed(0)
 				+ "\nRounded to the nearest tenth is " + myNumber.toFixed(1)
+				+ "\nRounded to the nearest hundredths is " + myNumber.toFixed(2)
 				+ "\nRounded to the nearest thousandth is "
-				+ myNumber.toFixed(2);
+				+ myNumber.toFixed(3);
 		}
 	}
 </script>
@@ -80,7 +81,7 @@ Validate the input and display an error message if the input is invalid. It is a
 		Enter a number:<input type="text" size="20" id="number" name="number">
 		<!-- number the user enters -->
 		<input type="button" value="Round this number" onclick="roundNumber()"><br>
-		<textarea id="output" rows="5" cols="50" readonly> 
+		<textarea id="output" rows="6" cols="50" readonly> 
          </textarea>
 		<br>
 		<!--  where the output ends up -->
