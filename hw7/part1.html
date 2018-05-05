@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="cs133 homework 7 part 1 page">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="hw7part1.css">
+<!-- Create a webpage in which users are allowed to select a page layout and formatting through the use of the className property. 
+Choose at least three form elements from among radio buttons, select items, checkboxes, and buttons 
+to allow the user to change the background color, font size, font family, font style, and font weight. 
+You may use JavaScript or jQuery for this. -->
+
+<!-- what appears in tab header -->
+<title>CNIT133 Homework 7 Part 1</title>
+
+<script>
+	//changes the size of the font displayed
+	function selectFontSize() {
+		var origTableObject = document.getElementById("originalTable");
+		var selectedFontSize = document.getElementById('fontSizeDropDown').value;
+
+		if (selectedFontSize == "small") {
+			origTableObject.className = "small basicTable";
+		} else if (selectedFontSize == "medium") {
+			origTableObject.className = "medium basicTable";
+		} else if (selectedFontSize == "large") {
+			origTableObject.className = "large basicTable";
+		}
+	}
+	//this changes the background color of the whole page
+	function color(style) {
+		var body = document.getElementById("body");
+		if (style == 0) {
+			body.className = "blue";
+		} else if (style == 1) {
+			body.className = "white";
+		}
+	}
+	//this changes the font weight
+	function switchFontWeight(style) {
+		var body = document.getElementById("body");
+		if (style == 0) {
+			body.className = "bold";
+		} else if (style == 1) {
+			body.className = "normal";
+		}
+	}
+
+	//this turns the tabel grey with a pink border
+	function pinkBorders() {
+		var body = document.getElementById("body");
+		body.className = "pinkme";
+	}
+
+	//when the user clicks revert to original, this loads the original styles
+	function switchToOrig() {
+
+		var origbody = document.getElementById("body");
+		origbody.className = "originalBody";
+
+		var origTableObject = document.getElementById("originalTable");
+		origTableObject.className = "basicTable";
+	}
+</script>
+</head>
+<body id="body" class="originalBody">
+	<nav>
+		<a href="../hw7.html"> Homework 7 </a>| <a href="../hw7/part1.html">
+			Part 1 </a>| <a href="../hw7/part2.html"> Part 2 </a>| <a
+			href="../hw7/part3.html"> Part 3 </a>|
+	</nav>
+
+	<section id="content">
+<h3> Homework 7 part 1 </h3>
+		<form name="myform">
+			<p class="main">
+				<b>Change the page by selecting these options:</b>
+			</p>
+			<br>
+
+			<table class="basicTable" id="originalTable">
+				<tr>
+					<td>Select Background Color: <br> <input type="radio"
+						name="style" onclick="color(0)">blue <br> <input
+						type="radio" name="style" onclick="color(1)">white
+					</td>
+
+					<td colspan="2">Choose font weight: <br> <input
+						type="radio" name="fweight" onclick="switchFontWeight(0)">Bold
+						<input type="radio" name="fweight" onclick="switchFontWeight(1)">Normal
+					</td>
+				</tr>
+
+				<tr>
+					<td colspan="2">Select font size: <br> <select
+						name="fontSizeDropDown" id="fontSizeDropDown"
+						onchange="selectFontSize()">
+
+							<option value="#">--Select font size--</option>
+							<option value="small">Tiny</option>
+							<option value="medium">Medium</option>
+							<option value="large">Large</option>
+					</select>
+					</td>
+					<td colspan="2"><input type="button" value="Pink and Grey"
+						onclick="pinkBorders()"></td>
+				</tr>
+
+			</table>
+		</form>
+
+		<br> <input type="button" value="Revert to original"
+			onclick="switchToOrig()">
+
+	</section>
+
+	<footer>
+		<p>
+			Nicole Horner Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a>
+		</p>
+		<a href="https://hills.ccsf.edu/~nhorner/cnit133/index.html">Back
+			To Main Page</a>
+		<!-- this script writes the date the document was last modified -->
+		<script>
+			var dateModified = document.lastModified;
+			mydate = dateModified.slice(0, 16);
+			document.write("Last updated: " + mydate);
+		</script>
+		<!--  <p>
+	<a class="noglo" href="http://validator.w3.org/check?uri=referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" alt="Valid HTML5" /></a>
+	<a class="noglo" href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
+	</p> -->
+	</footer>
+
+</body>
+
+</html>
