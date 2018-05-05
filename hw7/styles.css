@@ -61,7 +61,8 @@ div.error {
 .no-js nav li:hover ul { display:block; }
  
 /* base nav styles */
-nav { display:block; margin:0 auto 20px; border:1px solid #222; position:relative; background-color:#6a6a6a; font:16px Tahoma, Sans-serif; }
+nav ul ul { display:none; width:100%; position:absolute; left:0; background:#6a6a6a; }
+nav { display:block; margin:0 auto 20px; border:1px solid #222; position:relative; background-color:#81ABEA; font:16px Tahoma, Sans-serif; }
 nav ul { padding:0; margin:0; }
 nav li { position:relative; float:left; list-style-type:none; }
 nav ul:after { content:"."; display:block; height:0; clear:both; visibility:hidden; }
@@ -70,7 +71,7 @@ nav li a:focus { outline:none; text-decoration:underline; }
 nav li:first-child a { border-left:none; }
 nav li.last a { border-right:none; }
 nav a span { display:block; float:right; margin-left:5px; }
-nav ul ul { display:none; width:100%; position:absolute; left:0; background:#6a6a6a; }
+
 nav ul ul li { float:none; }
 nav ul ul a { padding:5px 10px; border-left:none; border-right:none; font-size:14px; }
 nav ul ul a:hover { background-color:#555; }
