@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>cnit133 nav bar</title>
+<link rel="stylesheet" href="styles.css">
+
+<!--[if IE 7]>
+    <link rel="stylesheet" href="ie.css">
+    <link rel="stylesheet" href="ie7.css">
+<![endif]-->
+</head>
+<body class="no-js">
+<script>
+	var el = document.getElementsByTagName("body")[0];
+	el.className = "";
+</script>
+<nav id="topNav">
+	<ul>
+		<li><a href="../index.html.html">CNIT 133</a></li>
+		<li><a href="../hw2.html">Homework 2</a>
+		<ul> <li> <a href="../hw2/part1.html"> Part 1 </a></li> 
+			<li><a href="../hw2/part2.html"> Part 2 </a></li>
+			<li> <a	href="../hw2/part3.html"> Part 3 </a></li>
+			<li class="last"> <a href="../hw2/part4.html">	Part 4 </a></li>
+		</ul></li>
+		<li><a href="../hw3.html">Homework 3</a>
+		<ul> <li> <a href="../hw3/part1.html"> Part 1 </a></li> 
+			<li><a href="../hw3/part2.html"> Part 2 </a></li>
+			<li> <a	href="../hw3/part3.html"> Part 3 </a></li>
+			<li class="last"> <a href="../hw3/part4.html">	Part 4 </a></li>
+		</ul></li>
+		<li><a href="../hw4.html">Homework 4</a>		
+		<ul> <li> <a href="../hw4/part1.html"> Part 1 </a></li> 
+			<li><a href="../hw4/part2.html"> Part 2 </a></li>
+			<li class="last"> <a	href="../hw4/part3.html"> Part 3 </a></li>
+		</ul></li>
+		<li><a href="../hw5.html">Homework 5</a>		<ul> <li> 
+		<a href="../hw5/part1.html"> Part 1 </a></li> 
+			<li><a href="../hw5/part2.html"> Part 2 </a></li>
+			<li class="last"> <a	href="../hw5/part3.html"> Part 3 </a></li>
+		</ul></li>
+		<li><a href="../hw6.html">Homework 6</a>		<ul> <li> 
+		<a href="../hw6/part1.html"> Part 1 </a></li> 
+			<li><a href="../hw6/part2.html"> Part 2 </a></li>
+			<li class="last"> <a	href="../hw6/part3.html"> Part 3 </a></li>
+		</ul></li>
+		<li><a href="../hw7.html">Homework 7</a>		
+		<ul> <li> <a href="../hw7/part1.html"> Part 1 </a></li> 
+			<li><a href="../hw7/part2.html"> Part 2 </a></li>
+			<li class="last"> <a	href="../hw7/part3.html"> Part 3 </a></li>
+		</ul></li>
+		<li><a href="../hw8.html">Homework 8</a></li>
+	</ul>
+	</nav>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script>
+	(function($){
+				
+		//cache nav
+		var nav = $("#topNav");
+				
+		//add indicators and hovers to submenu parents
+		nav.find("li").each(function() {
+			if ($(this).find("ul").length > 0) {
+				
+				$("<span>").text("^").appendTo($(this).children(":first"));
+
+				//show subnav on hover
+				$(this).mouseenter(function() {
+					$(this).find("ul").stop(true, true).slideDown();
+				});
+						
+				//hide submenus on exit
+				$(this).mouseleave(function() {
+					$(this).find("ul").stop(true, true).slideUp();
+				});
+			}
+		});
+	})(jQuery);
+</script>
+<noscript>
+<!--[if IE]>
+    <link rel="stylesheet" href="css/ie.css">
+<![endif]-->
+</noscript>
+
+ Behold the navigation bar above!
+
+	<footer>
+		<p>
+			Nicole Horner Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a>
+		</p>
+		<a href="https://hills.ccsf.edu/~nhorner/cnit133/index.html">Back
+			To Main Page</a>
+		<!-- this script writes the date the document was last modified -->
+		<script>
+			var dateModified = document.lastModified;
+			mydate = dateModified.slice(0, 16);
+			document.write("Last updated: " + mydate);
+		</script>
+		<!--  <p>
+	<a class="noglo" href="http://validator.w3.org/check?uri=referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" alt="Valid HTML5" /></a>
+	<a class="noglo" href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
+	</p> -->
+	</footer>
+
+</body>
+
+</html>
