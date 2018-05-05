@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="cs133 homework 7 part 3 page">
+<link rel="stylesheet" href="styles.css">
+<!-- make a slideshow-->
+
+<!-- what appears in tab header -->
+<title>CNIT133 Homework 7 Part 3</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- fancyBox files -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+
+</head>
+	<nav>
+		<a href="../hw7.html"> Homework 7 </a>| <a href="../hw7/part1.html">
+			Part 1 </a>| <a href="../hw7/part2.html"> Part 2 </a>| <a
+			href="../hw7/part3.html"> Part 3 </a>|
+	</nav>
+<h2>Homework 7 Part 3</h2>
+
+                    
+<script>
+function myDate() {
+    var d = new Date();
+    var pdtDiff = d.getTimezoneOffset();
+    var pdtHoursDiff = pdtDiff /60;
+    var edtHoursDiff = pdtHoursDiff-3;
+    document.getElementById("date").innerHTML = d.toString() + "<br> UTC : " + d.toUTCString() + "<br>toLocaleString() : " + d.toLocaleString() + 
+    "<br> Hours difference PDT to UTC : " + pdtHoursDiff + "<br> EDT to UTC : " + edtHoursDiff;
+}
+</script>
+
+<!-- 2. Create links -->
+
+<a data-fancybox="gallery" href="../images/catlg.jpg"><img src="../images/cat.jpg"></a>
+<a data-fancybox="gallery" href="../images/butterflylg.jpg"><img src="../images/butterfly.jpg"></a>
+
+<footer>
+		<p>
+			Nicole Horner Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a>
+		</p>
+		<a href="https://hills.ccsf.edu/~nhorner/cnit133/index.html">Back
+			To Main Page</a>
+		<!-- this script writes the date the document was last modified -->
+		<script>
+			var dateModified = document.lastModified;
+			mydate = dateModified.slice(0, 16);
+			document.write("Last updated: " + mydate);
+		</script>
+		<!--  <p>
+	<a class="noglo" href="http://validator.w3.org/check?uri=referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" alt="Valid HTML5" /></a>
+	<a class="noglo" href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
+	</p> -->
+	</footer>
+
+</body>
+
+</html>
