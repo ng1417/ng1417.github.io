@@ -6,17 +6,48 @@
 <link rel="stylesheet" href="styles.css">
 
 <title>CNIT 133 Homework Number 8</title>
+
+<script	src="https://code.jquery.com/jquery-1.7.1.js"></script>
+
+<script>
+	$(document).ready(function() {
+		$('.answer').hide();
+		$('.main h2').toggle(function() {
+			$(this).next('.answer').slideDown();
+			$(this).addClass('close');
+		}, function() {
+			$(this).next('.answer').fadeOut();
+			$(this).removeClass('close');
+		}); // end toggle
+	}); // end ready
+</script>
+
 </head>
 <body>
 	<h1>CNIT 133 Homework Number 8</h1>
+	<nav>
+		<a href="hw8.html"> Homework 8</a>| <a href="hw8/part1.html"> Part
+			1 </a>| <a href="hw8/part2.html"> Part 2 </a>
+	</nav>
 
-	<p>coming soon...</p>
-
-	<p>
-		<a href="index.html">back to main page</a>
-	</p>
-
-	<footer> Nicole Horner CNIT 133 1/22/2018 </footer>
+	<div class="main">
+		<h2>Part 1 - Recreate the 'gethint' Ajax example from W3Schools. </h2>
+		<div class="answer">
+			<p>Use the php file containing the hints and expand them to include several more names as hints.
+			Note: It is recommended to upload your php script into the same directory where your HTML file resides. 
+			Be sure to give your php directory read and execute permissions (chmod 700 or 755 php). 
+			Remember that you can use the setup script, after login in Hills, and the script will set up automatically 
+			the right permissions to any files and folders from the public_html down.</p>
+		</div>
+		<h2>Part 2 - Form and Ajax</h2>
+		<div class="answer">
+			<p>Create a webpage containing a form and an Ajax script that will receive data sent from the server. 
+			The form should contain four input text boxes, for Name, Time, Date (day, date format), and Date (mm/dd/yy format). 
+			After the user enters their name in the Name text box and then clicks outside this text box, 
+			the Ajax script should access three php scripts on the server which will contain the Time, Date (day, date format), 
+			and Date (mm/dd/yy format) and return the Time and Date formats into their respective text boxes.</p>
+		</div>
+	</div>
 
 	<div id="footer">
 		<p>
@@ -24,21 +55,16 @@
 				href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a>
 		</p>
 		<script>
-    var dateModified = document.lastModified;
-    mydate = dateModified.slice(0,16);
-    document.write("Last updated: " + mydate);
-	</script>
-		<p>
-			<a class="noglo" href="http://validator.w3.org/check?uri=referer"><img
-				style="border: 0; width: 88px; height: 31px"
-				src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png"
-				alt="Valid HTML5" /></a> <a class="noglo"
-				href="http://jigsaw.w3.org/css-validator/check/referer"><img
-				style="border: 0; width: 88px; height: 31px"
-				src="http://jigsaw.w3.org/css-validator/images/vcss"
-				alt="Valid CSS!" /></a>
-		</p>
+			var dateModified = document.lastModified;
+			mydate = dateModified.slice(0, 16);
+			document.write("Last updated: " + mydate);
+		</script>
+		<!--  <p>
+	<a class="noglo" href="http://validator.w3.org/check?uri=referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" alt="Valid HTML5" /></a>
+	<a class="noglo" href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
+	</p> -->
 	</div>
+
 </body>
 
 </html>
