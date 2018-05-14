@@ -4,9 +4,113 @@
 <meta charset="utf-8">
 <meta name="description" content="cs133 homework 8 part 1 page">
 <link rel="stylesheet" href="styles.css">
+
+<link rel="import" href="../nav.html">
+<title>CNIT133 Homework 8 Part 2</title>
 </head>
 <body>
-<footer>
+	<h1>CNIT 133 Homework Number 8 part 2</h1>
+	<nav>
+		<a href="../hw8.html"> Homework 8</a>| <a href="../hw8/part1.html">
+			Part 1 </a>| <a href="../hw8/part2.html"> Part 2 </a>
+	</nav>
+
+	<script>
+		//Browser Support Code
+		function ajaxFunction() {
+			var ajaxRequest1, ajaxRequest2, ajaxRequest3; // The variable that makes Ajax possible!
+
+			try {
+				// Opera 8.0+, Firefox, Safari
+				ajaxRequest1 = new XMLHttpRequest();
+
+			} catch (e) {
+				// Internet Explorer Browsers
+				try {
+					ajaxRequest1 = new ActiveXObject("Msxml2.XMLHTTP");
+				} catch (e) {
+					try {
+						ajaxRequest1 = new ActiveXObject("Microsoft.XMLHTTP");
+					} catch (e) {
+						// Something went wrong
+						alert("Your browser broke!");
+						return false;
+					}
+				}
+			}
+			// function that will receive data sent from the server
+			ajaxRequest1.onreadystatechange = function() {
+				if (ajaxRequest1.readyState == 4) {
+					document.myForm.time.value = ajaxRequest1.responseText;
+				}
+			}
+			ajaxRequest1.open("GET", "time.php", true);
+			ajaxRequest1.send(null);
+
+			try {
+				// Opera 8.0+, Firefox, Safari
+				ajaxRequest2 = new XMLHttpRequest();
+			} catch (e) {
+				// Internet Explorer Browsers
+				try {
+					ajaxRequest2 = new ActiveXObject("Msxml2.XMLHTTP");
+				} catch (e) {
+					try {
+						ajaxRequest2 = new ActiveXObject("Microsoft.XMLHTTP");
+					} catch (e) {
+						// Something went wrong
+						alert("Your browser broke!");
+						return false;
+					}
+				}
+			}
+			//function that will receive data sent from the server
+			ajaxRequest2.onreadystatechange = function() {
+				if (ajaxRequest2.readyState == 4) {
+					document.myForm.time2.value = ajaxRequest2.responseText;
+				}
+			}
+			ajaxRequest2.open("GET", "time2.php", true);
+			ajaxRequest2.send(null);
+
+			//third object to populate 3rd field
+			try {
+				// Opera 8.0+, Firefox, Safari
+				ajaxRequest3 = new XMLHttpRequest();
+			} catch (e) {
+				// Internet Explorer Browsers
+				try {
+					ajaxRequest3 = new ActiveXObject("Msxml2.XMLHTTP");
+				} catch (e) {
+					try {
+						ajaxRequest3 = new ActiveXObject("Microsoft.XMLHTTP");
+					} catch (e) {
+						// Something went wrong
+						alert("Your browser broke!");
+						return false;
+					}
+				}
+			}
+			// Create a function that will receive data sent from the server
+			ajaxRequest3.onreadystatechange = function() {
+				if (ajaxRequest3.readyState == 4) {
+					document.myForm.time3.value = ajaxRequest3.responseText;
+				}
+			}
+			ajaxRequest3.open("GET", "time3.php", true);
+			ajaxRequest3.send(null);
+
+		}
+	</script>
+	<form name='myForm'>
+		Name: <input type='text' onkeyup="ajaxFunction();" name="username">
+		<br> Time: <input type='text' name='time'> Date: <input
+			type='text' name='time2' readonly> <br> Date and Time: <input
+			type='text' name='time3' readonly>
+
+	</form>
+
+	<footer>
 		<p>
 			Nicole Horner Contact: <a href="mailto:nhorner@ccsf.edu">nhorner@ccsf.edu</a>
 		</p>
